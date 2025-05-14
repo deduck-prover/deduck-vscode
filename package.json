@@ -1,0 +1,124 @@
+{
+  "name": "deduck-prover-vscode",
+  "displayName": "deduck-prover-vscode",
+  "description": "A VS Code extension for viewing and interacting with DeDuck proofs",
+  "publisher": "cs245",
+  "version": "0.1.0",
+  "engines": { "vscode": "^1.60.0" },
+  "activationEvents": [
+    "onLanguage:deduck"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "deduck",
+      "extensions": [".deduck"],
+      "aliases": ["DeDuck"]
+    }],
+    "commands": [
+      {
+        "command": "deduck.runToCursor",
+        "title": "DeDuck: Run to Cursor"
+      },
+      {
+        "command": "deduck.stepForward",
+        "title": "DeDuck: Step Forward"
+      },
+      {
+        "command": "deduck.stepBackward",
+        "title": "DeDuck: Step Backward"
+      },
+      {
+        "command": "deduck.runToEnd",
+        "title": "DeDuck: Run to End"
+      },
+      {
+        "command": "deduck.reset",
+        "title": "DeDuck: Reset"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "deduck.runToCursor",
+        "key": "cmd+shift+-",
+        "when": "editorTextFocus && editorLangId == deduck && isMac"
+      },
+      {
+        "command": "deduck.runToCursor",
+        "key": "ctrl+shift+-",
+        "when": "editorTextFocus && editorLangId == deduck && (isLinux || isWindows)"
+      },
+      {
+        "command": "deduck.stepForward",
+        "key": "cmd+shift+down",
+        "when": "editorTextFocus && editorLangId == deduck && isMac"
+      },
+      {
+        "command": "deduck.stepForward",
+        "key": "ctrl+shift+down",
+        "when": "editorTextFocus && editorLangId == deduck && (isLinux || isWindows)"
+      },
+      {
+        "command": "deduck.stepBackward",
+        "key": "cmd+shift+up",
+        "when": "editorTextFocus && editorLangId == deduck && isMac"
+      },
+      {
+        "command": "deduck.stepBackward",
+        "key": "ctrl+shift+up",
+        "when": "editorTextFocus && editorLangId == deduck && (isLinux || isWindows)"
+      },
+      {
+        "command": "deduck.runToEnd",
+        "key": "cmd+shift+pagedown",
+        "when": "editorTextFocus && editorLangId == deduck && isMac"
+      },
+      {
+        "command": "deduck.runToEnd",
+        "key": "ctrl+shift+pagedown",
+        "when": "editorTextFocus && editorLangId == deduck && (isLinux || isWindows)"
+      },
+      {
+        "command": "deduck.reset",
+        "key": "cmd+shift+pageup",
+        "when": "editorTextFocus && editorLangId == deduck && isMac"
+      },
+      {
+        "command": "deduck.reset",
+        "key": "ctrl+shift+pageup",
+        "when": "editorTextFocus && editorLangId == deduck && (isLinux || isWindows)"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "properties": {
+        "deduck-prover-vscode.pythonPath": {
+          "type": "string",
+          "default": "python",
+          "description": "Path to the Python interpreter used to run the deduck prover"
+        }
+      }
+    }
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vscode": "^1.1.37",
+    "@types/node": "^22.15.17"
+  },
+  "keywords": [
+    "deduck",
+    "proof",
+    "verification",
+    "formal-logic"
+  ],
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "icon": "images/icon.png",
+  "license": "MIT"
+}

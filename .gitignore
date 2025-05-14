@@ -1,0 +1,25 @@
+# Node.js dependencies
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# Compiled output
+out/
+dist/
+*.js
+*.js.map
+
+# TypeScript build files
+*.tsbuildinfo
+
+# OS-specific
+.DS_Store
+
+# Python
+__pycache__/
+
+# Misc
+*.log
+
+# VS Code extension
+*.vsix
