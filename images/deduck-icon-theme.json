@@ -1,0 +1,14 @@
+{
+  "iconDefinitions": {
+    "deduckFile": {
+      "iconPath": "./icon.png"
+    }
+  },
+  "fileExtensions": {
+    "deduck": "deduckFile"
+  },
+  "fileNames": {},
+  "languageIds": {
+    "deduck": "deduckFile"
+  }
+}

@@ -97,7 +97,14 @@
           "description": "Path to the Python interpreter used to run the deduck prover"
         }
       }
-    }
+    },
+    "iconThemes": [
+      {
+        "id": "deduck-icons",
+        "label": "DeDuck Icons",
+        "path": "./images/deduck-icon-theme.json"
+      }
+    ]
   },
   "main": "./out/extension.js",
   "scripts": {
