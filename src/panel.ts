@@ -60,9 +60,10 @@ export class ProofStatePanel {
     return `
       <html>
       <head>
+        <meta name="color-scheme" content="dark light">
         <link rel="stylesheet" type="text/css" href="${cssUri}">
       </head>
-      <body>
+      <body class="vscode">
         <div class="deduck-content">
           ${mainContent}
         </div>

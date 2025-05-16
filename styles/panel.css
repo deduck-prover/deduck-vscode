@@ -1,7 +1,7 @@
 body {
-  background: #181a1b;
-  color: #e6e6e6;
-  font-family: 'Segoe UI', 'Fira Mono', 'Menlo', 'monospace', sans-serif;
+  background: var(--vscode-editor-background, #181a1b);
+  color: var(--vscode-editor-foreground, #e6e6e6);
+  font-family: 'Fira Mono', 'Menlo', 'monospace', sans-serif;
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -17,7 +17,7 @@ body {
 }
 
 .proof-state {
-  color: #e6e6e6;
+  color: var(--vscode-editor-foreground, #e6e6e6);
   font-size: 13px;
   line-height: 1.5;
   margin: 0 0 10px 0;
@@ -27,9 +27,9 @@ body {
 }
 
 .error-box {
-  background: #2d1a1a;
-  color: #ffb3b3;
-  border-left: 4px solid #e57373;
+  background: var(--vscode-editorError-background, #f7ebeb);
+  color: var(--vscode-editorError-foreground, #b10d0d);
+  border-left: 4px solid var(--vscode-editorError-border, #b10d0d);
   border-radius: 4px;
   padding: 8px 12px;
   margin: 8px 0 0 0;
@@ -41,8 +41,7 @@ body {
 .deduck-footer {
   display: flex;
   align-items: center;
-  background: #202225;
-  border-top: 1px solid #23272b;
+  background: var(--vscode-sideBar-background, #202225);
   padding: 8px 18px;
   min-height: 48px;
   flex-shrink: 0;
@@ -74,12 +73,12 @@ body {
 .deduck-title {
   font-size: 15px;
   font-weight: 600;
-  color: #e6e6e6;
+  color: var(--vscode-editor-foreground, #e6e6e6);
   margin-bottom: 5px;
 }
 
 .deduck-subtitle {
   font-size: 11px;
-  color: #b0b0b0;
+  color: var(--vscode-descriptionForeground, #b0b0b0);
   font-style: italic;
 }
