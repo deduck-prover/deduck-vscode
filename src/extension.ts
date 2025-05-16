@@ -85,6 +85,7 @@ async function runToLine(lineNum: number) {
 
   if (lineNum < 0) {
     lastLine.set(editor.document.uri, {failed: -1, passed: -1});
+    panel.updateOnSuccess("");
     setTextDecorations();
     return;
   }

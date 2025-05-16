@@ -1,0 +1,85 @@
+body {
+  background: #181a1b;
+  color: #e6e6e6;
+  font-family: 'Segoe UI', 'Fira Mono', 'Menlo', 'monospace', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.deduck-content {
+  padding: 18px 20px 8px 20px;
+  flex: 1 1 auto;
+  overflow-x: auto;
+}
+
+.proof-state {
+  color: #e6e6e6;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0 0 10px 0;
+  font-family: 'Fira Mono', 'Menlo', 'monospace', monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.error-box {
+  background: #2d1a1a;
+  color: #ffb3b3;
+  border-left: 4px solid #e57373;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 8px 0 0 0;
+  font-size: 13px;
+  font-family: 'Fira Mono', 'Menlo', 'monospace', monospace;
+  white-space: pre-wrap;
+}
+
+.deduck-footer {
+  display: flex;
+  align-items: center;
+  background: #202225;
+  border-top: 1px solid #23272b;
+  padding: 8px 18px;
+  min-height: 48px;
+  flex-shrink: 0;
+}
+
+.deduck-logo {
+  height: 50px;
+  margin-right: 12px;
+  border-radius: 6px;
+  filter: drop-shadow(0 0 0.25rem #f1efa2);
+}
+
+.deduck-logo-spin {
+  animation: deduck-spin 1.2s linear 1;
+}
+
+@keyframes deduck-spin {
+  0% { transform: rotate(0deg); }
+  80% { transform: rotate(380deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.deduck-footer-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.deduck-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e6e6e6;
+  margin-bottom: 5px;
+}
+
+.deduck-subtitle {
+  font-size: 11px;
+  color: #b0b0b0;
+  font-style: italic;
+}
