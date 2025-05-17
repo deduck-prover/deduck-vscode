@@ -128,5 +128,9 @@
     "Other"
   ],
   "icon": "images/icon.png",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deduck-prover/deduck-vscode.git"
+  }
 }
