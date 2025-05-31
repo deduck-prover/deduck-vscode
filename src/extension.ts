@@ -198,6 +198,9 @@ async function handleDocumentChange(event: vscode.TextDocumentChangeEvent) {
 }
 
 async function handleTextEditorChange(editor: vscode.TextEditor) {
+  const isDeduck = !!editor && editor.document && editor.document.languageId === 'deduck';
+  vscode.commands.executeCommand('setContext', 'deduckEditorFocus', isDeduck);
+
   if (editor.document.languageId !== 'deduck') {
     return;
   }
@@ -205,8 +208,15 @@ async function handleTextEditorChange(editor: vscode.TextEditor) {
   if (!lastLine.has(editor.document.uri)) {
     // If the document is new, initialize
     lastLine.set(editor.document.uri, {failed: -1, passed: -1});
+    await runToLine(-1);
   } else {
-    // If the document is not new, set the decorations
-    setTextDecorations();
+    // If the document is not new, run to the last line visited
+    const lastLineFailed = lastLine.get(editor.document.uri)?.failed;
+    const lastLinePassed = lastLine.get(editor.document.uri)?.passed;
+    if (lastLineFailed < 0) {
+      await runToLine(lastLinePassed);
+    } else {
+      await runToLine(lastLineFailed);
+    }
   }
 }

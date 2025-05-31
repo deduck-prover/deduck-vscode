@@ -3,7 +3,7 @@
   "displayName": "deduck-prover-vscode",
   "description": "A VS Code extension for viewing and interacting with DeDuck proofs",
   "publisher": "cs245",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "engines": { "vscode": "^1.60.0" },
   "activationEvents": [
     "onLanguage:deduck"
@@ -17,23 +17,33 @@
     "commands": [
       {
         "command": "deduck.runToCursor",
-        "title": "DeDuck: Run to Cursor"
+        "title": "Run to Cursor",
+        "category": "DeDuck",
+        "enablement": "deduckEditorFocus"
       },
       {
         "command": "deduck.stepForward",
-        "title": "DeDuck: Step Forward"
+        "title": "Step Forward",
+        "category": "DeDuck",
+        "enablement": "deduckEditorFocus"
       },
       {
         "command": "deduck.stepBackward",
-        "title": "DeDuck: Step Backward"
+        "title": "Step Backward",
+        "category": "DeDuck",
+        "enablement": "deduckEditorFocus"
       },
       {
         "command": "deduck.runToEnd",
-        "title": "DeDuck: Run to End"
+        "title": "Run to End",
+        "category": "DeDuck",
+        "enablement": "deduckEditorFocus"
       },
       {
         "command": "deduck.reset",
-        "title": "DeDuck: Reset"
+        "title": "Reset",
+        "category": "DeDuck",
+        "enablement": "deduckEditorFocus"
       }
     ],
     "keybindings": [
