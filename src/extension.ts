@@ -44,8 +44,7 @@ export function activate(ctx: vscode.ExtensionContext) {
 
   // Check if the deduck-prover Python package is installed
   try {
-    const pipShow = execSync(`${pythonPath} -m pip show deduck-prover`, { encoding: 'utf8' }).trim();
-    console.log(`Found deduck-prover package:\n${pipShow}`);
+    execSync(`${pythonPath} -m pip show deduck-prover`, { encoding: 'utf8' });
   } catch (e: any) {
     vscode.window.showErrorMessage(`The Python package 'deduck-prover' is not installed in the selected environment (${pythonPath}). ${e.message}`);
     return;

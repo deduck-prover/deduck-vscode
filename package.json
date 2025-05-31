@@ -3,7 +3,7 @@
   "displayName": "deduck-prover-vscode",
   "description": "A VS Code extension for viewing and interacting with DeDuck proofs",
   "publisher": "cs245",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "engines": { "vscode": "^1.60.0" },
   "activationEvents": [
     "onLanguage:deduck"
