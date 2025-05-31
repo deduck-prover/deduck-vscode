@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { ProofStatePanel } from './panel';
 import { ProofRunner } from './runner';
+import { execSync } from 'child_process';
 
 let panel: ProofStatePanel;
 let runner: ProofRunner;
@@ -27,6 +28,28 @@ export function activate(ctx: vscode.ExtensionContext) {
   // Read Python interpreter path from configuration (fallback to "python")
   const config = vscode.workspace.getConfiguration('deduck-prover-vscode');
   const pythonPath = config.get<string>('pythonPath') || 'python';
+
+  // Check Python version (must be >= 3.8)
+  try {
+    const versionOut = execSync(`${pythonPath} -c "import sys; print(f'{sys.version_info[0]}.{sys.version_info[1]}')"`, { encoding: 'utf8' }).trim();
+    const [major, minor] = versionOut.split('.').map(Number);
+    if (major < 3 || (major === 3 && minor < 8)) {
+      vscode.window.showErrorMessage(`Python >= 3.8 is required, but found version ${versionOut} at '${pythonPath}'. Please update your Python interpreter.`);
+      return;
+    }
+  } catch (e: any) {
+    vscode.window.showErrorMessage(`Could not find a Python interpreter.`);
+    return;
+  }
+
+  // Check if the deduck-prover Python package is installed
+  try {
+    const pipShow = execSync(`${pythonPath} -m pip show deduck-prover`, { encoding: 'utf8' }).trim();
+    console.log(`Found deduck-prover package:\n${pipShow}`);
+  } catch (e: any) {
+    vscode.window.showErrorMessage(`The Python package 'deduck-prover' is not installed in the selected environment (${pythonPath}). ${e.message}`);
+    return;
+  }
   
   // Pass the extension path directly to the runner
   runner = new ProofRunner(pythonPath, ['-m', script], ctx.extensionPath);
